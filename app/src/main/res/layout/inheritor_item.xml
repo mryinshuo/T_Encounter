@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+    <com.shiyuji.CircleImageView
+        android:id="@+id/inheritorHead"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_margin="10dp"
+        android:src="@drawable/user_head" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/inheritorRealName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="尹烁"
+            android:textSize="18sp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="昵称：" />
+
+            <TextView
+                android:id="@+id/inheritorName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="大佬" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/inheritorText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="确山打铁花传承人"
+        android:textSize="20sp" />
+</LinearLayout>

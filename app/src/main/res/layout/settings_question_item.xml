@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/questionItemLL"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:paddingEnd="16dp"
+        android:gravity="center">
+        <TextView
+            android:id="@+id/questionTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="13"
+            android:paddingStart="24dp"
+            android:textSize="18sp"/>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+            <ImageView
+                android:id="@+id/questionItemExpandIV"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/down"/>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
