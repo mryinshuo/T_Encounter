@@ -10,8 +10,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,17 +29,19 @@ public class EditVideo extends AppCompatActivity implements View.OnClickListener
     private boolean selected = false;
     private final int TOTALNUM = 300;
     private boolean isOutOfBound = false;
-
+    private Button ReleaseVideo;
+    ListView listView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.index_edit);
 
+        ReleaseVideo = (Button)findViewById(R.id.ReleaseVideo);
         topicInput = (EditText) findViewById(R.id.videoInputET);
         topicInputNum = (TextView) findViewById(R.id.videoInputNum);
         editAddImage = (ImageView) findViewById(R.id.editAddImage);
         editAddImage.setOnClickListener(this);
-
+        ReleaseVideo.setOnClickListener(this);
         topicInput.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -94,8 +98,14 @@ public class EditVideo extends AppCompatActivity implements View.OnClickListener
                 Toast.makeText(this, "点击了拍照", Toast.LENGTH_SHORT).show();
                 selected = true;
                 break;
+
             case R.id.choosePhoto:
                 Toast.makeText(this, "点击了从相册选择", Toast.LENGTH_SHORT).show();
+                selected = true;
+                break;
+            case R.id.ReleaseVideo:
+                Toast.makeText(this, "发布视频", Toast.LENGTH_SHORT).show();
+
                 selected = true;
                 break;
             case R.id.editAddImage:
@@ -106,5 +116,13 @@ public class EditVideo extends AppCompatActivity implements View.OnClickListener
             dialog.dismiss();
             selected = false;
         }
+    }
+
+    /**
+     * 发布
+     */
+    public void release(){
+        listView = (ListView) findViewById(R.id.indexLV);
+
     }
 }
