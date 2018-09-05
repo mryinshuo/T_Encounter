@@ -78,7 +78,7 @@ public class ChannelActivity extends AppCompatActivity implements View.OnClickLi
 
     @Override
     public void onClick(View view) {
-        switch(view.getId()) {
+        switch (view.getId()) {
             case R.id.titlebarPrev:
                 break;
             case R.id.literature:
@@ -133,6 +133,7 @@ public class ChannelActivity extends AppCompatActivity implements View.OnClickLi
                 break;
         }
     }
+
     @Override
     public void onBackPressed() {
         super.onBackPressed();
