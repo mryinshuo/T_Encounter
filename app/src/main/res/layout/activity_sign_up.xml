@@ -40,27 +40,27 @@
                     android:textSize="17sp" />
 
                 <!--<EditText-->
-                    <!--android:id="@+id/signUpPassword"-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:background="@drawable/round_corner_gray"-->
-                    <!--android:hint="@string/password"-->
-                    <!--android:maxLines="1"-->
-                    <!--android:paddingHorizontal="10dp"-->
-                    <!--android:paddingVertical="8dp"-->
-                    <!--android:textSize="17sp" />-->
+                <!--android:id="@+id/signUpPassword"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:background="@drawable/round_corner_gray"-->
+                <!--android:hint="@string/password"-->
+                <!--android:maxLines="1"-->
+                <!--android:paddingHorizontal="10dp"-->
+                <!--android:paddingVertical="8dp"-->
+                <!--android:textSize="17sp" />-->
 
                 <!--<EditText-->
-                    <!--android:id="@+id/signUpCheckPassword"-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_marginVertical="15dp"-->
-                    <!--android:background="@drawable/round_corner_gray"-->
-                    <!--android:hint="@string/checkPw"-->
-                    <!--android:maxLines="1"-->
-                    <!--android:paddingHorizontal="10dp"-->
-                    <!--android:paddingVertical="8dp"-->
-                    <!--android:textSize="17sp" />-->
+                <!--android:id="@+id/signUpCheckPassword"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginVertical="15dp"-->
+                <!--android:background="@drawable/round_corner_gray"-->
+                <!--android:hint="@string/checkPw"-->
+                <!--android:maxLines="1"-->
+                <!--android:paddingHorizontal="10dp"-->
+                <!--android:paddingVertical="8dp"-->
+                <!--android:textSize="17sp" />-->
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -95,22 +95,23 @@
                     android:layout_height="wrap_content"
                     android:background="@drawable/round_corner_gray"
                     android:hint="@string/password"
+                    android:inputType="textPassword"
                     android:maxLines="1"
                     android:paddingHorizontal="10dp"
                     android:paddingVertical="8dp"
-                    android:layout_marginEnd="5dp"
                     android:textSize="17sp" />
 
                 <EditText
                     android:id="@+id/confirmPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginVertical="15dp"
                     android:background="@drawable/round_corner_gray"
                     android:hint="@string/checkPw"
+                    android:inputType="textPassword"
                     android:maxLines="1"
                     android:paddingHorizontal="10dp"
                     android:paddingVertical="8dp"
-                    android:layout_marginEnd="5dp"
                     android:textSize="17sp" />
 
             </LinearLayout>

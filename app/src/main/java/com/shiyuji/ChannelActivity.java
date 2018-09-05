@@ -1,15 +1,17 @@
 package com.shiyuji;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-
-import com.shiyuji.ExitApp.BackPress;
+import android.widget.TextView;
 
 public class ChannelActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -71,14 +73,12 @@ public class ChannelActivity extends AppCompatActivity implements View.OnClickLi
         index.setOnClickListener(this);
         trends.setOnClickListener(this);
 
-//        titlebar.setBackgroundResource(R.drawable.dingbu);
-//        titlebarPrev.setBackgroundResource(0);
         titlebarPrev.removeViewAt(0);
     }
 
     @Override
     public void onClick(View view) {
-        switch(view.getId()) {
+        switch (view.getId()) {
             case R.id.titlebarPrev:
                 break;
             case R.id.literature:
@@ -91,32 +91,37 @@ public class ChannelActivity extends AppCompatActivity implements View.OnClickLi
             case R.id.tradition:
             case R.id.medicine:
             case R.id.folk:
+                ImageView itemIV = view.findViewById(R.id.channelItemIV);
                 if (selected == null) {
-                    ((ImageView) view.findViewById(R.id.traditionIV)).setImageResource(R.drawable.tradition_after);
+                    itemIV.setSelected(!itemIV.isSelected());
                     selected = (LinearLayout) view;
                     choose.setVisibility(View.VISIBLE);
                 } else if (view == selected) {
-                    ((ImageView) view.findViewById(R.id.traditionIV)).setImageResource(R.drawable.tradition);
+                    itemIV.setSelected(!itemIV.isSelected());
                     selected = null;
                     choose.setVisibility(View.INVISIBLE);
                 }
                 break;
             case R.id.channelTopics:
                 if (selected != null) {
+                    int icon = (int) ((ImageView) selected.findViewById(R.id.channelItemIV)).getTag();
+                    CharSequence title = ((TextView) selected.findViewById(R.id.channelItemTV)).getText();
                     Intent intent = new Intent(ChannelActivity.this, TopicsChannel.class);
-                    intent.putExtra("title", "传统技艺");
+                    intent.putExtra("icon", icon);
+                    intent.putExtra("title", title);
                     startActivity(intent);
-                    ((ImageView) selected.findViewById(R.id.traditionIV)).setImageResource(R.drawable.tradition);
+                    selected.findViewById(R.id.channelItemIV).setSelected(false);
                     selected = null;
                     choose.setVisibility(View.INVISIBLE);
                 }
                 break;
             case R.id.channelVideos:
                 if (selected != null) {
+                    CharSequence title = ((TextView) selected.findViewById(R.id.channelItemTV)).getText();
                     Intent intent = new Intent(ChannelActivity.this, VideosChannel.class);
-                    intent.putExtra("title", "传统技艺");
+                    intent.putExtra("title", title);
                     startActivity(intent);
-                    ((ImageView) selected.findViewById(R.id.traditionIV)).setImageResource(R.drawable.tradition);
+                    selected.findViewById(R.id.channelItemIV).setSelected(false);
                     selected = null;
                     choose.setVisibility(View.INVISIBLE);
                 }
@@ -133,9 +138,22 @@ public class ChannelActivity extends AppCompatActivity implements View.OnClickLi
                 break;
         }
     }
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        BackPress.BackPressed(this);
+
+    public void onBackPressed() {       // 当触摸返回键时
+        AlertDialog.Builder checkExit = new AlertDialog.Builder(this);      // 创建对话框
+        checkExit.setMessage("退出程序？");
+        checkExit.setCancelable(true);
+        checkExit.setPositiveButton("是", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                finish();                                                       // 选“是”则结束当前Activity
+            }
+        });
+        checkExit.setNegativeButton("否", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+            }      // 选“否”对话框消失
+        });
+        checkExit.show();       // 弹出对话框
     }
 }
