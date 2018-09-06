@@ -33,208 +33,57 @@
                     android:layout_gravity="center"
                     android:columnCount="3">
 
-                    <LinearLayout
+                    <com.shiyuji.ChannelItem
                         android:id="@+id/literature"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="20dp"
-                        android:layout_marginVertical="15dp"
-                        android:gravity="center"
-                        android:orientation="vertical">
+                        app:channelItemImage="@drawable/literature_selector"
+                        app:channelItemText="民间文学"/>
 
-                        <ImageView
-                            android:layout_width="70dp"
-                            android:layout_height="70dp"
-                            android:src="@drawable/literature" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/chan1" />
-                    </LinearLayout>
-
-                    <LinearLayout
+                    <com.shiyuji.ChannelItem
                         android:id="@+id/music"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="30dp"
-                        android:layout_marginVertical="15dp"
-                        android:gravity="center"
-                        android:orientation="vertical">
+                        app:channelItemImage="@drawable/music_selector"
+                        app:channelItemText="传统音乐"/>
 
-                        <ImageView
-                            android:layout_width="70dp"
-                            android:layout_height="70dp"
-                            android:src="@drawable/music" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/chan2" />
-                    </LinearLayout>
-
-                    <LinearLayout
+                    <com.shiyuji.ChannelItem
                         android:id="@+id/dancing"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="20dp"
-                        android:layout_marginVertical="15dp"
-                        android:gravity="center"
-                        android:orientation="vertical">
+                        app:channelItemImage="@drawable/dancing_selector"
+                        app:channelItemText="传统舞蹈"/>
 
-                        <ImageView
-                            android:layout_width="70dp"
-                            android:layout_height="70dp"
-                            android:src="@drawable/dancing" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/chan3" />
-                    </LinearLayout>
-
-                    <LinearLayout
+                    <com.shiyuji.ChannelItem
                         android:id="@+id/theatre"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="20dp"
-                        android:layout_marginVertical="15dp"
-                        android:gravity="center"
-                        android:orientation="vertical">
+                        app:channelItemImage="@drawable/theatre_selector"
+                        app:channelItemText="传统戏剧"/>
 
-                        <ImageView
-                            android:layout_width="70dp"
-                            android:layout_height="70dp"
-                            android:src="@drawable/theatre" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/chan4" />
-                    </LinearLayout>
-
-                    <LinearLayout
+                    <com.shiyuji.ChannelItem
                         android:id="@+id/quyi"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="30dp"
-                        android:layout_marginVertical="15dp"
-                        android:gravity="center"
-                        android:orientation="vertical">
+                        app:channelItemImage="@drawable/quyi_selector"
+                        app:channelItemText="曲艺"/>
 
-                        <ImageView
-                            android:layout_width="70dp"
-                            android:layout_height="70dp"
-                            android:src="@drawable/quyi" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/chan5" />
-                    </LinearLayout>
-
-                    <LinearLayout
+                    <com.shiyuji.ChannelItem
                         android:id="@+id/acrobatics"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="20dp"
-                        android:layout_marginVertical="15dp"
-                        android:gravity="center"
-                        android:orientation="vertical">
+                        app:channelItemImage="@drawable/acrobatics_selector"
+                        app:channelItemText="杂技与竞技"/>
 
-                        <ImageView
-                            android:layout_width="70dp"
-                            android:layout_height="70dp"
-                            android:src="@drawable/acrobatics" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/chan6" />
-                    </LinearLayout>
-
-                    <LinearLayout
+                    <com.shiyuji.ChannelItem
                         android:id="@+id/art"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="20dp"
-                        android:layout_marginVertical="15dp"
-                        android:gravity="center"
-                        android:orientation="vertical">
+                        app:channelItemImage="@drawable/art_selector"
+                        app:channelItemText="传统美术"/>
 
-                        <ImageView
-                            android:layout_width="70dp"
-                            android:layout_height="70dp"
-                            android:src="@drawable/art" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/chan7" />
-                    </LinearLayout>
-
-                    <LinearLayout
+                    <com.shiyuji.ChannelItem
                         android:id="@+id/tradition"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="30dp"
-                        android:layout_marginVertical="15dp"
-                        android:gravity="center"
-                        android:orientation="vertical">
+                        app:channelItemImage="@drawable/tradition_selector"
+                        app:channelItemText="传统技艺"/>
 
-                        <ImageView
-                            android:id="@+id/traditionIV"
-                            android:layout_width="70dp"
-                            android:layout_height="70dp"
-                            android:src="@drawable/tradition" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/chan8" />
-                    </LinearLayout>
-
-                    <LinearLayout
+                    <com.shiyuji.ChannelItem
                         android:id="@+id/medicine"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="20dp"
-                        android:layout_marginVertical="15dp"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-                        <ImageView
-                            android:layout_width="70dp"
-                            android:layout_height="70dp"
-                            android:src="@drawable/medicine" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/chan9" />
-                    </LinearLayout>
+                        app:channelItemImage="@drawable/medicine_selector"
+                        app:channelItemText="传统医药"/>
 
                     <LinearLayout />
 
-                    <LinearLayout
+                    <com.shiyuji.ChannelItem
                         android:id="@+id/folk"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="30dp"
-                        android:layout_marginVertical="15dp"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-                        <ImageView
-                            android:layout_width="70dp"
-                            android:layout_height="70dp"
-                            android:src="@drawable/folk" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="民俗" />
-                    </LinearLayout>
+                        app:channelItemImage="@drawable/folk_selector"
+                        app:channelItemText="民俗"/>
 
                     <LinearLayout />
                 </GridLayout>
@@ -337,7 +186,7 @@
                     <ImageView
                         android:layout_width="35dp"
                         android:layout_height="35dp"
-                        android:src="@drawable/channelling" />
+                        android:src="@drawable/channel_after" />
 
                     <TextView
                         android:layout_width="wrap_content"
