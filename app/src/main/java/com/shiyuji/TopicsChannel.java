@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -22,7 +23,8 @@ import java.util.List;
 public class TopicsChannel extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
     private List<TopicsItem> itemList = new ArrayList<>();     // 定义一个ArrayList存放所有要添加的item
-    private TextView titlea;
+    private ImageView topicsIcon;
+    private TextView topicsTitle;
     private ListView topicsLV;
     private SwipeRefreshLayout topicsSRL;
 
@@ -32,9 +34,12 @@ public class TopicsChannel extends AppCompatActivity implements AdapterView.OnIt
         setContentView(R.layout.channel_topics);
 
         Intent intent = getIntent();
+        int icon = intent.getIntExtra("icon", -1);
         String title = intent.getStringExtra("title");      // 从频道传回的标题名称
-        titlea = (TextView) findViewById(R.id.titlea);
-        titlea.setText(title);
+        topicsIcon = (ImageView) findViewById(R.id.topicsIcon);
+        topicsTitle = (TextView) findViewById(R.id.topicsTitle);
+        topicsIcon.setImageResource(icon);
+        topicsTitle.setText(title);
 
         initItems();                                                                                            // 生成ListView内容
         TopicsItemAdapter adapter = new TopicsItemAdapter(this, R.layout.channel_topics_item, itemList);    // 声明adapter
