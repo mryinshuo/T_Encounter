@@ -25,8 +25,6 @@ public class EditTopicChannel extends AppCompatActivity implements View.OnClickL
     private EditText topicInput;
     private TextView topicInputNum;
     private boolean selected = false;
-    private final int TOTALNUM = 300;
-    private boolean isOutOfBound = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,23 +39,15 @@ public class EditTopicChannel extends AppCompatActivity implements View.OnClickL
         topicInput.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
             }
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if (count <= TOTALNUM) {
-                    topicInputNum.setText(Integer.toString(count));
-                } else {
-                    isOutOfBound = true;
-                }
+                topicInputNum.setText(Integer.toString(s.length()));
             }
 
             @Override
             public void afterTextChanged(Editable s) {
-                if (isOutOfBound) {
-
-                }
             }
         });
     }

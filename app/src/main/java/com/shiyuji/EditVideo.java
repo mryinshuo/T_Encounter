@@ -27,16 +27,15 @@ public class EditVideo extends AppCompatActivity implements View.OnClickListener
     private EditText topicInput;
     private TextView topicInputNum;
     private boolean selected = false;
-    private final int TOTALNUM = 300;
-    private boolean isOutOfBound = false;
     private Button ReleaseVideo;
     ListView listView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.index_edit);
 
-        ReleaseVideo = (Button)findViewById(R.id.ReleaseVideo);
+        ReleaseVideo = (Button) findViewById(R.id.ReleaseVideo);
         topicInput = (EditText) findViewById(R.id.videoInputET);
         topicInputNum = (TextView) findViewById(R.id.videoInputNum);
         editAddImage = (ImageView) findViewById(R.id.editAddImage);
@@ -45,23 +44,15 @@ public class EditVideo extends AppCompatActivity implements View.OnClickListener
         topicInput.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
             }
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if (count <= TOTALNUM) {
-                    topicInputNum.setText(Integer.toString(count));
-                } else {
-                    isOutOfBound = true;
-                }
+                topicInputNum.setText(Integer.toString(s.length()));
             }
 
             @Override
             public void afterTextChanged(Editable s) {
-                if (isOutOfBound) {
-
-                }
             }
         });
     }
@@ -121,7 +112,7 @@ public class EditVideo extends AppCompatActivity implements View.OnClickListener
     /**
      * 发布
      */
-    public void release(){
+    public void release() {
         listView = (ListView) findViewById(R.id.indexLV);
 
     }

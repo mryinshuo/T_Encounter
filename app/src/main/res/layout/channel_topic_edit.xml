@@ -37,6 +37,7 @@
             android:gravity="top"
             android:hint="@string/word1"
             android:lines="8"
+            android:maxLength="300"
             android:padding="5dp" />
 
         <RelativeLayout
