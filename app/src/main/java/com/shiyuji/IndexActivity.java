@@ -51,6 +51,9 @@ public class IndexActivity extends AppCompatActivity implements View.OnClickList
     private LinearLayout trends;
     private FloatingActionButton fab;
     private ImageView message;
+    private TextView recommendTV;
+    private TextView liveTV;
+    private TextView nearbyTV;
 
     private ImageView cursor;       //滚动条的动画。
     private int cursorWidth;        //动画的宽度。
@@ -77,12 +80,18 @@ public class IndexActivity extends AppCompatActivity implements View.OnClickList
         trends = (LinearLayout) findViewById(R.id.indexTrends);
         fab = (FloatingActionButton) findViewById(R.id.indexFAB);
         message = (ImageView) findViewById(R.id.indexMessage);
+        recommendTV = (TextView) findViewById(R.id.indexRecommend);
+        liveTV = (TextView) findViewById(R.id.indexLive);
+        nearbyTV = (TextView) findViewById(R.id.indexNearby);
 
         channel.setOnClickListener(this);
         trends.setOnClickListener(this);
         indexDrawer.setOnClickListener(this);
         fab.setOnClickListener(this);
         message.setOnClickListener(this);
+        recommendTV.setOnClickListener(this);
+        liveTV.setOnClickListener(this);
+        nearbyTV.setOnClickListener(this);
 
         init();
         initCursorPos();
@@ -137,7 +146,6 @@ public class IndexActivity extends AppCompatActivity implements View.OnClickList
             }
         });
 
-       
 
     }
 
@@ -150,19 +158,19 @@ public class IndexActivity extends AppCompatActivity implements View.OnClickList
  * 获取地图权限
  */
         List<String> permissionList = new ArrayList<>();
-        if (ContextCompat.checkSelfPermission(IndexActivity.this, Manifest.permission.ACCESS_FINE_LOCATION)!= PackageManager.PERMISSION_GRANTED){
+        if (ContextCompat.checkSelfPermission(IndexActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             permissionList.add(Manifest.permission.ACCESS_FINE_LOCATION);
         }
-        if (ContextCompat.checkSelfPermission(IndexActivity.this, Manifest.permission.READ_PHONE_STATE)!= PackageManager.PERMISSION_GRANTED){
+        if (ContextCompat.checkSelfPermission(IndexActivity.this, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
             permissionList.add(Manifest.permission.READ_PHONE_STATE);
         }
-        if (ContextCompat.checkSelfPermission(IndexActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE)!= PackageManager.PERMISSION_GRANTED){
+        if (ContextCompat.checkSelfPermission(IndexActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
             permissionList.add(Manifest.permission.WRITE_EXTERNAL_STORAGE);
         }
-        if (!permissionList.isEmpty()){
-            String[]permissions = permissionList.toArray(new String[permissionList.size()]);
-            ActivityCompat.requestPermissions(IndexActivity.this,permissions,1);
-        }else{
+        if (!permissionList.isEmpty()) {
+            String[] permissions = permissionList.toArray(new String[permissionList.size()]);
+            ActivityCompat.requestPermissions(IndexActivity.this, permissions, 1);
+        } else {
             requestLocation();
         }
     }
@@ -212,6 +220,15 @@ public class IndexActivity extends AppCompatActivity implements View.OnClickList
             case R.id.indexMessage:
                 Intent message = new Intent(this, IndexMessageActivity.class);
                 startActivity(message);
+                break;
+            case R.id.indexRecommend:
+                indexVP.setCurrentItem(0);
+                break;
+            case R.id.indexLive:
+                indexVP.setCurrentItem(1);
+                break;
+            case R.id.indexNearby:
+                indexVP.setCurrentItem(2);
                 break;
         }
     }
@@ -272,12 +289,13 @@ public class IndexActivity extends AppCompatActivity implements View.OnClickList
     /**
      * 开始定位
      */
-    private void requestLocation(){
+    private void requestLocation() {
         initLocation();
         mLocationClient.start();
 
     }
-    private void initLocation(){
+
+    private void initLocation() {
         LocationClientOption option = new LocationClientOption();
         option.setScanSpan(5000);
         option.setCoorType("bd09ll");
@@ -294,20 +312,21 @@ public class IndexActivity extends AppCompatActivity implements View.OnClickList
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        switch (requestCode){
-            case 1:if (grantResults.length>0){
-                for (int result:grantResults){
-                    if (result != PackageManager.PERMISSION_GRANTED){
-                        Toast.makeText(this,"同意权限才可以使用本程序",Toast.LENGTH_SHORT).show();
-                        finish();
-                        return;
+        switch (requestCode) {
+            case 1:
+                if (grantResults.length > 0) {
+                    for (int result : grantResults) {
+                        if (result != PackageManager.PERMISSION_GRANTED) {
+                            Toast.makeText(this, "同意权限才可以使用本程序", Toast.LENGTH_SHORT).show();
+                            finish();
+                            return;
+                        }
                     }
+                    requestLocation();
+                } else {
+                    Toast.makeText(this, "发生错误", Toast.LENGTH_SHORT).show();
+                    finish();
                 }
-                requestLocation();
-            }else{
-                Toast.makeText(this,"发生错误",Toast.LENGTH_SHORT).show();
-                finish();
-            }
                 break;
             default:
         }
@@ -320,16 +339,17 @@ public class IndexActivity extends AppCompatActivity implements View.OnClickList
 
             //Lbs.setText("beijing");
 
-            Log.d(TAG, "getLocationID: "+bdLocation.getCity());
-            Log.d(TAG, "getLocationID: "+bdLocation.getCity());
-            Log.d(TAG, "getLocationID: "+bdLocation.getLocationID());
-            Log.d(TAG, "getCityCode: "+bdLocation.getCityCode());
-            Log.d(TAG, "getLongitude: "+bdLocation.getLatitude());
-            Log.d(TAG, "getLongitude: "+bdLocation.getLongitude());
-            Log.d(TAG, "getAdCode: "+bdLocation.getAdCode());
-            if (bdLocation.getLocType()==BDLocation.TypeGpsLocation){
+            Log.d(TAG, "getLocationID: " + bdLocation.getCity());
+            Log.d(TAG, "getLocationID: " + bdLocation.getCity());
+            Log.d(TAG, "getLocationID: " + bdLocation.getLocationID());
+            Log.d(TAG, "getCityCode: " + bdLocation.getCityCode());
+            Log.d(TAG, "getLongitude: " + bdLocation.getLatitude());
+            Log.d(TAG, "getLongitude: " + bdLocation.getLongitude());
+            Log.d(TAG, "getAdCode: " + bdLocation.getAdCode());
+            if (bdLocation.getLocType() == BDLocation.TypeGpsLocation) {
                 Log.d(TAG, "定位方式：GPS");
-            }if (bdLocation.getLocType()==BDLocation.TypeNetWorkLocation){
+            }
+            if (bdLocation.getLocType() == BDLocation.TypeNetWorkLocation) {
                 Log.d(TAG, "定位方式：网络");
             }
         }
