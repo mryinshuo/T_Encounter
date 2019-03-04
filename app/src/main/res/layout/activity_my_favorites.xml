@@ -56,7 +56,7 @@
                 android:src="@drawable/viewpager_title_cursor" />
         </LinearLayout>
 
-        <androidx.core.view.ViewPager
+        <androidx.viewpager.widget.ViewPager
             android:id="@+id/myFavoritesVP"
             android:layout_width="match_parent"
             android:layout_height="0dp"

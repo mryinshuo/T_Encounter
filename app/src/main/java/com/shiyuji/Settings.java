@@ -56,7 +56,11 @@ public class Settings extends AppCompatActivity implements AdapterView.OnItemCli
             AlertDialog.Builder checkExit = new AlertDialog.Builder(this);      // 创建对话框
             checkExit.setMessage("退出登陆？");
             checkExit.setCancelable(true);
-            checkExit.setPositiveButton("是", new DialogInterface.OnClickListener() {
+            checkExit.setPositiveButton("否", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {}      // 选“否”对话框消失
+            });
+            checkExit.setNegativeButton("是", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
                    // SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences();
@@ -64,10 +68,6 @@ public class Settings extends AppCompatActivity implements AdapterView.OnItemCli
                     startActivity(intent);
                     finish();                                                       // 选“是”则结束当前Activity
                 }
-            });
-            checkExit.setNegativeButton("否", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialogInterface, int i) {}      // 选“否”对话框消失
             });
             checkExit.show();       // 弹出对话框
         }

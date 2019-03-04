@@ -89,14 +89,12 @@ public class EditVideo extends AppCompatActivity implements View.OnClickListener
                 Toast.makeText(this, "点击了拍照", Toast.LENGTH_SHORT).show();
                 selected = true;
                 break;
-
             case R.id.choosePhoto:
                 Toast.makeText(this, "点击了从相册选择", Toast.LENGTH_SHORT).show();
                 selected = true;
                 break;
             case R.id.ReleaseVideo:
                 Toast.makeText(this, "发布视频", Toast.LENGTH_SHORT).show();
-
                 selected = true;
                 break;
             case R.id.editAddImage:
@@ -114,6 +112,5 @@ public class EditVideo extends AppCompatActivity implements View.OnClickListener
      */
     public void release() {
         listView = (ListView) findViewById(R.id.indexLV);
-
     }
 }

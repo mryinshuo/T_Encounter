@@ -17,7 +17,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
@@ -45,7 +44,6 @@ public class IndexActivity extends AppCompatActivity implements View.OnClickList
     private ImageView indexDrawer;
     private LinearLayout channel;
     private LinearLayout trends;
-    private LinearLayout indexMiddleLL;
     private FloatingActionButton fab;
     private ImageView message;
     private TextView recommendTV;
@@ -75,7 +73,6 @@ public class IndexActivity extends AppCompatActivity implements View.OnClickList
         indexDrawer = (ImageView) findViewById(R.id.indexDrawerIV);
         channel = (LinearLayout) findViewById(R.id.indexChannel);
         trends = (LinearLayout) findViewById(R.id.indexTrends);
-        indexMiddleLL = (LinearLayout) findViewById(R.id.indexMiddleLL);
         fab = (FloatingActionButton) findViewById(R.id.indexFAB);
         message = (ImageView) findViewById(R.id.indexMessage);
         recommendTV = (TextView) findViewById(R.id.indexRecommend);
