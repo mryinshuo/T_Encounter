@@ -1,13 +1,11 @@
 package com.shiyuji;
 
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
@@ -23,9 +21,6 @@ import com.shiyuji.db.personalInformation;
 
 import org.litepal.FluentQuery;
 import org.litepal.LitePal;
-import org.litepal.crud.LitePalSupport;
-
-import java.util.List;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
     private static final String TAG = "LoginActivity";
@@ -37,32 +32,32 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private TextView findPw;
     private TextView log2sign;
     private boolean isShown = false;
-private SharedPreferences sps;
-private SharedPreferences.Editor edit;
+    private SharedPreferences sps;
+    private SharedPreferences.Editor edit;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-//获取账号密码
+        //获取账号密码
         String accountNum = MyApplication.getInstance().hashMapInfo.get("AccountNum");
         String firPwd = MyApplication.getInstance().hashMapInfo.get("FirPwd");
         sps = PreferenceManager.getDefaultSharedPreferences(this);
         editTextUn = (EditText) findViewById(R.id.loginUn);
-        if (accountNum!=null){
+        if (accountNum != null) {
             editTextUn.setText(accountNum);//初始化账号
-        }else if (sps.getString("AccNum",null)!=null){
-            Log.d(TAG, "onCreate: AccNum"+sps.getString("AccNum",null));
-            editTextUn.setText(sps.getString("AccNum",null));//初始化账号
+        } else if (sps.getString("AccNum", null) != null) {
+            Log.d(TAG, "onCreate: AccNum" + sps.getString("AccNum", null));
+            editTextUn.setText(sps.getString("AccNum", null));//初始化账号
         }
 
 
         editTextPw = (EditText) findViewById(R.id.loginPw);
-        if (accountNum!=null){
+        if (accountNum != null) {
             editTextPw.setText(firPwd);//初始化密码
-        }else if (sps.getString("pwd",null)!=null){
-            editTextPw.setText(sps.getString("pwd",null));//初始化账号
+        } else if (sps.getString("pwd", null) != null) {
+            editTextPw.setText(sps.getString("pwd", null));//初始化账号
 
         }
 
@@ -121,22 +116,24 @@ private SharedPreferences.Editor edit;
         });
         checkExit.setNegativeButton("否", new DialogInterface.OnClickListener() {
             @Override
-            public void onClick(DialogInterface dialogInterface, int i) {}      // 选“否”对话框消失
+            public void onClick(DialogInterface dialogInterface, int i) {
+            }      // 选“否”对话框消失
         });
         checkExit.show();       // 弹出对话框
     }
-   //登陆验证
-    private void Login(){
-        FluentQuery where=null;
+
+    //登陆验证
+    private void Login() {
+        FluentQuery where = null;
         String AccNum = editTextUn.getText().toString();
         String pwd = editTextPw.getText().toString();
         personalInformation perInformations;
 
-         //LitePal.where("accountNumber = ?", AccNum).find(personalInformation.class);
-        try{
+        //LitePal.where("accountNumber = ?", AccNum).find(personalInformation.class);
+        try {
             where = LitePal.where("accountNumber = ?", AccNum);
             if (where != null) {
-                perInformations=where.find(personalInformation.class).get(0);
+                perInformations = where.find(personalInformation.class).get(0);
                 String password = perInformations.getPassword();//数据库中对应账号的密码
                 if (password.equals(pwd)) {
                     //默认记主上次登陆账号密码
@@ -145,7 +142,7 @@ private SharedPreferences.Editor edit;
                     edit.putString("AccNum", AccNum);
                     edit.putString("pwd", pwd);
                     edit.commit();
-                    Log.d(TAG, "Login: AccNum111"+sps.getString("AccNum",null));
+                    Log.d(TAG, "Login: AccNum111" + sps.getString("AccNum", null));
                     Intent intent = new Intent(this, IndexActivity.class);
                     startActivity(intent);
                     finish();
@@ -157,7 +154,7 @@ private SharedPreferences.Editor edit;
                 editTextUn.setText("");
                 editTextPw.setText("");
             }//if end
-        }catch (Exception e){
+        } catch (Exception e) {
             Toast.makeText(getApplicationContext(), "账号不存在", Toast.LENGTH_SHORT).show();
         }
     }

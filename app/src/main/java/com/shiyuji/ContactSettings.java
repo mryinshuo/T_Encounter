@@ -1,6 +1,6 @@
 package com.shiyuji;
 
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -29,7 +29,7 @@ public class ContactSettings extends AppCompatActivity {
         contactLV = (ListView) findViewById(R.id.contactLV);
         contactET = (TextView) findViewById(R.id.contactET);
         contactButton = (Button) findViewById(R.id.contactButton);
-        itemList.add(new ContactSettingItem(R.mipmap.launcher, "我是客服尹烁，很高兴为您服务", false));      // 设置客服默认消息
+        itemList.add(new ContactSettingItem(R.mipmap.launcher, "我是时遇记客服，很高兴为您服务", false));      // 设置客服默认消息
 
         adapter = new ContactSettingItemAdapter(this, R.layout.settings_contact_item, itemList);    // 声明adapter
         contactLV.setAdapter(adapter);                                                                       // 设置adapter

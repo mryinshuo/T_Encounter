@@ -2,20 +2,21 @@ package com.shiyuji.adapter;
 
 import android.content.Context;
 import android.os.Handler;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.view.PagerAdapter;
-import android.support.v4.widget.SwipeRefreshLayout;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.viewpager.widget.PagerAdapter;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
-import com.shiyuji.Application.MyApplication;
-import com.shiyuji.IndexActivity;
 import com.shiyuji.R;
 import com.shiyuji.model.IndexItem;
 import com.shiyuji.model.TrendsItem;
+import com.shiyuji.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -78,6 +79,9 @@ public class IndexPagerAdapter extends PagerAdapter {
                         @Override
                         public void run() {
                             recommendSRL.setRefreshing(false);
+                            if (!Utils.isNetworkConnected(context)) {
+                                Toast.makeText(context, "网络开小差了...", Toast.LENGTH_SHORT).show();
+                            }
                         }
                     }, 800);
                 }
@@ -97,13 +101,14 @@ public class IndexPagerAdapter extends PagerAdapter {
                         @Override
                         public void run() {
                             liveSRL.setRefreshing(false);
+                            if (!Utils.isNetworkConnected(context)) {
+                                Toast.makeText(context, "网络开小差了...", Toast.LENGTH_SHORT).show();
+                            }
                         }
                     }, 800);
                 }
             });
         } else if (item == R.layout.activity_index_nearby) {
-
-
             ListView nearbyLV = (ListView) view.findViewById(R.id.nearbyLV);
             nearbyLV.setAdapter(new NearbyItemAdapter(context, R.layout.trends_item, trendsItems));
             nearbyLV.addHeaderView(View.inflate(context, R.layout.activity_nearby_header, null));
@@ -119,6 +124,9 @@ public class IndexPagerAdapter extends PagerAdapter {
                         @Override
                         public void run() {
                             nearbySRL.setRefreshing(false);
+                            if (!Utils.isNetworkConnected(context)) {
+                                Toast.makeText(context, "网络开小差了...", Toast.LENGTH_SHORT).show();
+                            }
                         }
                     }, 800);
                 }

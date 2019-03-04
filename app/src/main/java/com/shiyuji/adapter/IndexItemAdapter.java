@@ -2,8 +2,8 @@ package com.shiyuji.adapter;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -47,8 +47,12 @@ public class IndexItemAdapter extends ArrayAdapter {
 
         image1.setImageResource(item.getImage1());
         image2.setImageResource(item.getImage2());
-        text1.setText(item.getText1());
-        text2.setText(item.getText2());
+
+        String str1 = item.getText1().length() < 21 ? item.getText1() : item.getText1().substring(0, 21) + "...";
+        String str2 = item.getText2().length() < 21 ? item.getText2() : item.getText2().substring(0, 21) + "...";
+
+        text1.setText(str1);
+        text2.setText(str2);
 
         view.findViewById(R.id.CV1).setOnClickListener(new View.OnClickListener() {
             @Override

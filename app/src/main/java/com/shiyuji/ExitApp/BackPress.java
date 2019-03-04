@@ -2,14 +2,12 @@ package com.shiyuji.ExitApp;
 
 import android.app.Activity;
 import android.content.DialogInterface;
-import android.support.v4.app.ActivityCompat;
-import android.support.v7.app.AlertDialog;
-
-import com.shiyuji.Application.MyApplication;
+import androidx.appcompat.app.AlertDialog;
 
 public class BackPress {
-    public static void BackPressed(final Activity activity) {       // 当触摸返回键时
-        AlertDialog.Builder checkExit = new AlertDialog.Builder(MyApplication.getContext());      // 创建对话框
+
+    public static void BackPressed(final Activity activity) {
+        AlertDialog.Builder checkExit = new AlertDialog.Builder(activity);      // 创建对话框
         checkExit.setMessage("退出程序？");
         checkExit.setCancelable(true);
         checkExit.setPositiveButton("是", new DialogInterface.OnClickListener() {

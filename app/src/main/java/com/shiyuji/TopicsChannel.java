@@ -3,22 +3,22 @@ package com.shiyuji;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.AppCompatActivity;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.shiyuji.adapter.TopicsItemAdapter;
 import com.shiyuji.model.TopicsItem;
 
 import java.util.ArrayList;
 import java.util.List;
-
 
 public class TopicsChannel extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
@@ -76,6 +76,9 @@ public class TopicsChannel extends AppCompatActivity implements AdapterView.OnIt
                     @Override
                     public void run() {
                         topicsSRL.setRefreshing(false);
+                        if (!Utils.isNetworkConnected(TopicsChannel.this)) {
+                            Toast.makeText(TopicsChannel.this, "网络开小差了...", Toast.LENGTH_SHORT).show();
+                        }
                     }
                 }, 800);
             }

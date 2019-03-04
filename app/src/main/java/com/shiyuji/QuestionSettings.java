@@ -2,7 +2,7 @@ package com.shiyuji;
 
 import android.annotation.SuppressLint;
 import android.graphics.Color;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -36,9 +36,9 @@ public class QuestionSettings extends AppCompatActivity implements AdapterView.O
     }
 
     private void initItems() {
-        itemList.add(new QuestionSettingItem("注册失败怎么办？", "爱咋办咋办", false));
-        itemList.add(new QuestionSettingItem("登陆失败怎么办？", "爱咋办咋办", false));
-        itemList.add(new QuestionSettingItem("视频加载不出来怎么办？", "爱咋办咋办", false));
+        itemList.add(new QuestionSettingItem("注册失败怎么办？", "请联系客服", false));
+        itemList.add(new QuestionSettingItem("登陆失败怎么办？", "请联系客服", false));
+        itemList.add(new QuestionSettingItem("视频加载不出来怎么办？", "请联系客服", false));
     }
 
     @SuppressLint("SetTextI18n")

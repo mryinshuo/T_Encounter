@@ -1,21 +1,19 @@
 package com.shiyuji;
 
 import android.Manifest;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
-import android.support.annotation.NonNull;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.NavigationView;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.view.ViewPager;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.navigation.NavigationView;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.core.view.GravityCompat;
+import androidx.viewpager.widget.ViewPager;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -24,7 +22,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -32,7 +29,6 @@ import android.widget.Toast;
 
 import com.baidu.location.BDAbstractLocationListener;
 import com.baidu.location.BDLocation;
-import com.baidu.location.BDLocationListener;
 import com.baidu.location.LocationClient;
 import com.baidu.location.LocationClientOption;
 import com.shiyuji.ExitApp.BackPress;
@@ -49,6 +45,7 @@ public class IndexActivity extends AppCompatActivity implements View.OnClickList
     private ImageView indexDrawer;
     private LinearLayout channel;
     private LinearLayout trends;
+    private LinearLayout indexMiddleLL;
     private FloatingActionButton fab;
     private ImageView message;
     private TextView recommendTV;
@@ -78,6 +75,7 @@ public class IndexActivity extends AppCompatActivity implements View.OnClickList
         indexDrawer = (ImageView) findViewById(R.id.indexDrawerIV);
         channel = (LinearLayout) findViewById(R.id.indexChannel);
         trends = (LinearLayout) findViewById(R.id.indexTrends);
+        indexMiddleLL = (LinearLayout) findViewById(R.id.indexMiddleLL);
         fab = (FloatingActionButton) findViewById(R.id.indexFAB);
         message = (ImageView) findViewById(R.id.indexMessage);
         recommendTV = (TextView) findViewById(R.id.indexRecommend);
@@ -211,7 +209,7 @@ public class IndexActivity extends AppCompatActivity implements View.OnClickList
                 break;
             case R.id.indexDrawerIV:
                 DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-                drawer.openDrawer(Gravity.START);
+                drawer.openDrawer(GravityCompat.START);
                 break;
             case R.id.indexFAB:
                 Intent edit = new Intent(this, EditVideo.class);

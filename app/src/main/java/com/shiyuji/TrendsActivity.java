@@ -3,15 +3,14 @@ package com.shiyuji;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Handler;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.TextView;
+import android.widget.Toast;
 
 import com.shiyuji.adapter.TrendsItemAdapter;
 import com.shiyuji.model.TrendsItem;
@@ -71,6 +70,9 @@ public class TrendsActivity extends AppCompatActivity implements View.OnClickLis
                     @Override
                     public void run() {
                         trendsSRL.setRefreshing(false);
+                        if (!Utils.isNetworkConnected(TrendsActivity.this)) {
+                            Toast.makeText(TrendsActivity.this, "网络开小差了...", Toast.LENGTH_SHORT).show();
+                        }
                     }
                 }, 800);
             }

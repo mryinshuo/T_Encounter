@@ -4,19 +4,17 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class ChannelActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private LinearLayout titlebar;
-    private LinearLayout titlebarPrev;
+    private LinearLayout titlebarSPrev;
     private LinearLayout literature;
     private LinearLayout music;
     private LinearLayout dancing;
@@ -39,8 +37,7 @@ public class ChannelActivity extends AppCompatActivity implements View.OnClickLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_channel);
 
-        titlebar = (LinearLayout) findViewById(R.id.titlebar);
-        titlebarPrev = (LinearLayout) findViewById(R.id.titlebarPrev);
+        titlebarSPrev = (LinearLayout) findViewById(R.id.titlebarSPrev);
         literature = (LinearLayout) findViewById(R.id.literature);
         music = (LinearLayout) findViewById(R.id.music);
         dancing = (LinearLayout) findViewById(R.id.dancing);
@@ -57,7 +54,7 @@ public class ChannelActivity extends AppCompatActivity implements View.OnClickLi
         index = (LinearLayout) findViewById(R.id.channelIndex);
         trends = (LinearLayout) findViewById(R.id.channelTrends);
 
-        titlebarPrev.setOnClickListener(this);
+        titlebarSPrev.setOnClickListener(this);
         literature.setOnClickListener(this);
         music.setOnClickListener(this);
         dancing.setOnClickListener(this);
@@ -73,7 +70,7 @@ public class ChannelActivity extends AppCompatActivity implements View.OnClickLi
         index.setOnClickListener(this);
         trends.setOnClickListener(this);
 
-        titlebarPrev.removeViewAt(0);
+        titlebarSPrev.removeViewAt(0);
     }
 
     @Override

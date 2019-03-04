@@ -2,8 +2,8 @@ package com.shiyuji;
 
 import android.app.DatePickerDialog;
 import android.content.DialogInterface;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -60,7 +60,7 @@ public class InfoSettings extends AppCompatActivity implements AdapterView.OnIte
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
         itemDetailTV = view.findViewById(R.id.itemDetailTV);
         if (itemList.get(i).getText().equals("头像")) {
-            Toast.makeText(this, "现在还改不了", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "功能暂未开放", Toast.LENGTH_SHORT).show();
         }
 
         if (itemList.get(i).getText().equals("性别")) {

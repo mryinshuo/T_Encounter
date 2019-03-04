@@ -2,8 +2,8 @@ package com.shiyuji;
 
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
+import androidx.viewpager.widget.ViewPager;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.View;

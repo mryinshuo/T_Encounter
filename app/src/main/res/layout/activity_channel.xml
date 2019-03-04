@@ -5,11 +5,11 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.shiyuji.Titlebar
+    <com.shiyuji.TitlebarSearch
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        app:titlebarText="频道" />
+        app:titlebarSText="频道" />
 
     <LinearLayout
         android:layout_width="match_parent"

@@ -54,6 +54,7 @@
             android:orientation="vertical">
 
             <LinearLayout
+                android:id="@+id/indexMiddleLL"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="10"
@@ -112,7 +113,7 @@
                         android:src="@drawable/viewpager_title_cursor" />
                 </LinearLayout>
 
-                <android.support.v4.view.ViewPager
+                <androidx.core.view.ViewPager
                     android:id="@+id/indexVP"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
