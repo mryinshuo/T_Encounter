@@ -1,6 +1,7 @@
 package com.shiyuji.adapter;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -13,6 +14,7 @@ import android.widget.LinearLayout;
 import android.widget.Switch;
 import android.widget.TextView;
 
+import com.shiyuji.CircleImageView;
 import com.shiyuji.R;
 import com.shiyuji.model.SettingItem;
 
@@ -28,16 +30,16 @@ public class SettingItemAdapter extends ArrayAdapter {
         resourceId = textViewResourceId;
         currentContext = context;
     }
-    public ImageView getUserHead(int userHead) {
-        ImageView imageView = new ImageView(currentContext);    // 实例化一个ImageView对象
-        imageView.setImageResource(userHead);                   // 设置图片为用户头像
+    public CircleImageView getUserHead(Bitmap userHead) {
+        CircleImageView imageView = new CircleImageView(currentContext);    // 实例化一个ImageView对象
+        imageView.setImageBitmap(userHead);                   // 设置图片为用户头像
         return imageView;                                       // 返回该对象
     }
     public Switch getSwitch() {
         Switch thisSwitch = new Switch(currentContext);         // 实例化一个Switch对象
         return thisSwitch;                                      // 返回该对象
     }
-    public void detail2UserHead(ViewGroup view, int userHead) {             // 传入遍历的根ViewGroup
+    public void detail2UserHead(ViewGroup view, Bitmap userHead) {             // 传入遍历的根ViewGroup
         View delete;                                                        // 声明delete为要删除的View
         int deleteId = currentContext.getResources().getIdentifier("itemDetailTV", "id", "com.shiyuji"); // 要删除的控件id
         for (int i = view.getChildCount(); i > 0; i--) {                    // 遍历view的子view个数次（必须反向遍历）
@@ -88,7 +90,7 @@ public class SettingItemAdapter extends ArrayAdapter {
             itemRightLL.removeView(itemDetailTV);   // 删除detail部分
             next2Switch(itemLL);                    // 添加Switch
         }
-        if (item.getUserHead() != 0) {                      // 若该item有用户头像id
+        if (item.getUserHead() !=null) {                      // 若该item有用户头像id
             detail2UserHead(itemLL, item.getUserHead());    // 添加ImageView
         }
         itemTV.setText(item.getText());                 // 设置文字

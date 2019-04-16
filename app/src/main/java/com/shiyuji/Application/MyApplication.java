@@ -13,6 +13,11 @@ import java.util.HashMap;
 public class MyApplication extends LitePalApplication {
     private static MyApplication mApp;
     private static Context context;
+    static public String phone;
+    static public String headUrl;
+    static public String userName;
+    static public String ADRESS;
+    private static String MYURL="http://39.105.45.66/Shiyuji_war/";
     public HashMap<String,String> hashMapInfo = new HashMap<>();
     @Override
     public void onCreate() {
@@ -27,4 +32,9 @@ public class MyApplication extends LitePalApplication {
     public static Context getContext(){
         return context;
     }
+    public static String getMYURL(){
+        return MYURL;
+    }
+
+
 }

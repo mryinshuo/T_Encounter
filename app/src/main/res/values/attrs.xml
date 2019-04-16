@@ -18,5 +18,6 @@
     <declare-styleable name="ChannelItem">
         <attr name="channelItemImage" format="reference|integer" />
         <attr name="channelItemText" format="string" />
+        <attr name="channelItemIdText" format="string" />
     </declare-styleable>
 </resources>

@@ -1,7 +1,16 @@
 package com.shiyuji.model;
 
+import android.graphics.Bitmap;
+
+import com.shiyuji.bean.GetImg;
+
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+
 public class CommentItem {
-    private int head;
+    private Bitmap imageUrl1;
     private String name;
     private String id;
     private String time;
@@ -9,9 +18,18 @@ public class CommentItem {
     private String text;
     private boolean isLiked;
     private int likeNum;
+    ExecutorService executor = Executors.newFixedThreadPool(10);
+    public CommentItem(String imageUrl1, String name, String id, String time, boolean isFollowed, String text, boolean isLiked, int likeNum) {
 
-    public CommentItem(int head, String name, String id, String time, boolean isFollowed, String text, boolean isLiked, int likeNum) {
-        this.head = head;
+        GetImg myCallable1 = new GetImg(imageUrl1);
+        Future<Bitmap> submit1 = executor.submit(myCallable1);
+        try {
+            this.imageUrl1 =submit1.get();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
         this.name = name;
         this.id = id;
         this.time = time;
@@ -21,12 +39,12 @@ public class CommentItem {
         this.likeNum = likeNum;
     }
 
-    public int getHead() {
-        return head;
+    public Bitmap getImageUrl1() {
+        return imageUrl1;
     }
 
-    public void setHead(int head) {
-        this.head = head;
+    public void setImageUrl1(Bitmap imageUrl1) {
+        this.imageUrl1 = imageUrl1;
     }
 
     public String getName() {

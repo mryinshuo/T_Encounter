@@ -1,6 +1,7 @@
 package com.shiyuji.model;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageButton;
@@ -10,6 +11,13 @@ import android.widget.TextView;
 import android.widget.VideoView;
 
 import com.shiyuji.R;
+import com.shiyuji.bean.GetImg;
+import com.shiyuji.myUtils.ImageBitmap;
+
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
 public class VideoDetailHeaderItem extends LinearLayout {
 
@@ -19,8 +27,8 @@ public class VideoDetailHeaderItem extends LinearLayout {
     private boolean isFollowed;
     private boolean isLiked;
     private boolean isFavorite;
-
-    private VideoView videoVV;
+    private int preview;
+    private ImageView videoVV;
     private ImageView headIV;
     private TextView nameTV;
     private TextView timeTV;
@@ -32,6 +40,12 @@ public class VideoDetailHeaderItem extends LinearLayout {
     private TextView commentNumTV;
     private TextView shareNumTV;
     private ImageView favoriteIV;
+
+
+    public void setPreview(String imageUrl) {
+        Bitmap imageBitmap = ImageBitmap.getImageBitmap(imageUrl);
+        videoVV.setImageBitmap(imageBitmap);
+    }
 
     public VideoDetailHeaderItem(Context context) {
         super(context);
@@ -48,7 +62,7 @@ public class VideoDetailHeaderItem extends LinearLayout {
         View view = inflater.inflate(R.layout.video_detail_header, null);
         addView(view);
 
-        videoVV = (VideoView) view.findViewById(R.id.videoDetailVV);
+        videoVV = (ImageView) view.findViewById(R.id.videoDetailVV);
         headIV = (ImageView) view.findViewById(R.id.videoDetailHead);
         nameTV = (TextView) view.findViewById(R.id.videoDetailName);
         timeTV = (TextView) view.findViewById(R.id.videoDetailTime);
@@ -66,8 +80,22 @@ public class VideoDetailHeaderItem extends LinearLayout {
         setFavorite(isFavorite);
     }
 
-    public void setHead(int head) {
-        headIV.setImageResource(head);
+    public void setHead(String imageUrl) {
+        ExecutorService executor = Executors.newFixedThreadPool(10);
+        Bitmap imageBitmap = null;
+        GetImg myCallable1 = new GetImg(imageUrl);
+
+        Future<Bitmap> submit1 = executor.submit(myCallable1);
+
+        try {
+            imageBitmap =submit1.get();
+
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+        headIV.setImageBitmap(imageBitmap);
     }
 
     public void setName(String name) {

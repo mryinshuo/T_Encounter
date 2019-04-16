@@ -36,54 +36,74 @@
                     <com.shiyuji.ChannelItem
                         android:id="@+id/literature"
                         app:channelItemImage="@drawable/literature_selector"
-                        app:channelItemText="民间文学"/>
+                        app:channelItemText="民间文学"
+                        app:channelItemIdText="1"
+                        />
 
                     <com.shiyuji.ChannelItem
                         android:id="@+id/music"
                         app:channelItemImage="@drawable/music_selector"
-                        app:channelItemText="传统音乐"/>
+                        app:channelItemText="传统音乐"
+                        app:channelItemIdText="2"
+                        />
 
                     <com.shiyuji.ChannelItem
                         android:id="@+id/dancing"
                         app:channelItemImage="@drawable/dancing_selector"
-                        app:channelItemText="传统舞蹈"/>
+                        app:channelItemText="传统舞蹈"
+                        app:channelItemIdText="3"
+                        />
 
                     <com.shiyuji.ChannelItem
                         android:id="@+id/theatre"
                         app:channelItemImage="@drawable/theatre_selector"
-                        app:channelItemText="传统戏剧"/>
+                        app:channelItemText="传统戏剧"
+                        app:channelItemIdText="4"
+                        />
 
                     <com.shiyuji.ChannelItem
                         android:id="@+id/quyi"
                         app:channelItemImage="@drawable/quyi_selector"
-                        app:channelItemText="曲艺"/>
+                        app:channelItemText="曲艺"
+                        app:channelItemIdText="5"
+                        />
 
                     <com.shiyuji.ChannelItem
                         android:id="@+id/acrobatics"
                         app:channelItemImage="@drawable/acrobatics_selector"
-                        app:channelItemText="杂技与竞技"/>
+                        app:channelItemText="杂技与竞技"
+                        app:channelItemIdText="6"
+                        />
 
                     <com.shiyuji.ChannelItem
                         android:id="@+id/art"
                         app:channelItemImage="@drawable/art_selector"
-                        app:channelItemText="传统美术"/>
+                        app:channelItemText="传统美术"
+                        app:channelItemIdText="7"
+                        />
 
                     <com.shiyuji.ChannelItem
                         android:id="@+id/tradition"
                         app:channelItemImage="@drawable/tradition_selector"
-                        app:channelItemText="传统技艺"/>
+                        app:channelItemText="传统技艺"
+                        app:channelItemIdText="8"
+                        />
 
                     <com.shiyuji.ChannelItem
                         android:id="@+id/medicine"
                         app:channelItemImage="@drawable/medicine_selector"
-                        app:channelItemText="传统医药"/>
+                        app:channelItemText="传统医药"
+                        app:channelItemIdText="9"
+                        />
 
                     <LinearLayout />
 
                     <com.shiyuji.ChannelItem
                         android:id="@+id/folk"
                         app:channelItemImage="@drawable/folk_selector"
-                        app:channelItemText="民俗"/>
+                        app:channelItemText="民俗"
+                        app:channelItemIdText="10"
+                        />
 
                     <LinearLayout />
                 </GridLayout>

@@ -54,6 +54,7 @@
                 android:src="@drawable/add" />
 
             <TextView
+                android:id="@+id/textAddChannel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
@@ -170,6 +171,7 @@
         <!--</GridLayout>-->
 
         <Button
+            android:id="@+id/releaseDisButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/colorPrimary"

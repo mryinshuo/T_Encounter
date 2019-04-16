@@ -13,6 +13,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.shiyuji.Application.MyApplication;
+
 public class ChannelActivity extends AppCompatActivity implements View.OnClickListener {
 
     private LinearLayout titlebar;
@@ -106,9 +108,12 @@ public class ChannelActivity extends AppCompatActivity implements View.OnClickLi
                 if (selected != null) {
                     int icon = (int) ((ImageView) selected.findViewById(R.id.channelItemIV)).getTag();
                     CharSequence title = ((TextView) selected.findViewById(R.id.channelItemTV)).getText();
+                    CharSequence cateid = ((TextView) selected.findViewById(R.id.channelItemIdTV)).getText();
                     Intent intent = new Intent(ChannelActivity.this, TopicsChannel.class);
                     intent.putExtra("icon", icon);
                     intent.putExtra("title", title);
+                    intent.putExtra("cateid", cateid);
+
                     startActivity(intent);
                     selected.findViewById(R.id.channelItemIV).setSelected(false);
                     selected = null;

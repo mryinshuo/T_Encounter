@@ -19,7 +19,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.shiyuji.Application.MyApplication;
+import com.shiyuji.bean.User;
 import com.shiyuji.db.personalInformation;
+import com.shiyuji.myUtils.changeUser;
 
 import org.litepal.FluentQuery;
 import org.litepal.LitePal;
@@ -131,7 +133,7 @@ private SharedPreferences.Editor edit;
         String AccNum = editTextUn.getText().toString();
         String pwd = editTextPw.getText().toString();
         personalInformation perInformations;
-
+        final String pointUrl = "user/updateUser.action";
          //LitePal.where("accountNumber = ?", AccNum).find(personalInformation.class);
         try{
             where = LitePal.where("accountNumber = ?", AccNum);
@@ -145,6 +147,8 @@ private SharedPreferences.Editor edit;
                     edit.putString("AccNum", AccNum);
                     edit.putString("pwd", pwd);
                     edit.commit();
+                    MyApplication.phone=AccNum;
+
                     Log.d(TAG, "Login: AccNum111"+sps.getString("AccNum",null));
                     Intent intent = new Intent(this, IndexActivity.class);
                     startActivity(intent);
