@@ -36,9 +36,9 @@ public class QuestionSettings extends AppCompatActivity implements AdapterView.O
     }
 
     private void initItems() {
-        itemList.add(new QuestionSettingItem("注册失败怎么办？", "爱咋办咋办", false));
-        itemList.add(new QuestionSettingItem("登陆失败怎么办？", "爱咋办咋办", false));
-        itemList.add(new QuestionSettingItem("视频加载不出来怎么办？", "爱咋办咋办", false));
+        itemList.add(new QuestionSettingItem("注册失败怎么办？", "联系客服哦", false));
+        itemList.add(new QuestionSettingItem("登陆失败怎么办？", "联系客服哦", false));
+        itemList.add(new QuestionSettingItem("视频加载不出来怎么办？", "联系客服哦", false));
     }
 
     @SuppressLint("SetTextI18n")

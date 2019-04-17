@@ -14,15 +14,17 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:background="@color/colorPrimary"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
             android:orientation="horizontal">
 
-            <ImageView
+            <com.shiyuji.CircleImageView
                 android:id="@+id/indexDrawerIV"
                 android:layout_width="0dp"
                 android:layout_height="30dp"
                 android:layout_gravity="center"
                 android:layout_weight="1"
-                android:src="@drawable/user_head" />
+                app:srcCompat="@drawable/user_head" />
 
             <EditText
                 android:id="@+id/agree"
@@ -69,6 +71,7 @@
                         android:orientation="horizontal">
 
                         <TextView
+                            android:id="@+id/indexRecommend"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
@@ -79,6 +82,7 @@
                             android:textSize="16sp" />
 
                         <TextView
+                            android:id="@+id/indexLive"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
@@ -89,6 +93,7 @@
                             android:textSize="16sp" />
 
                         <TextView
+                            android:id="@+id/indexNearby"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
@@ -107,11 +112,14 @@
                         android:src="@drawable/viewpager_title_cursor" />
                 </LinearLayout>
 
-                <android.support.v4.view.ViewPager
-                    android:id="@+id/indexVP"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-            </LinearLayout>
+
+                    <android.support.v4.view.ViewPager
+                        android:id="@+id/indexVP"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+
+                </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"

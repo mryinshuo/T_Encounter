@@ -1,17 +1,18 @@
 package com.shiyuji.model;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 
 public class SettingItem {          // Setting中自定义item的实体类
     private Intent intent = null;       // 点击后跳转的intent
     private String text = null;         // 内容文字
     private String detailText = null;   // detail部分文字
     private int leftIconId = 0;         // 左侧图标id
-    private int userHead = 0;           // 右侧头像id
+    private Bitmap userHead ;           // 右侧头像id
     private boolean showNext = true;    // 是否显示next箭头
     private boolean isDivider = false;  // 是否为分割线
     private boolean showSwitch = false; // 是否显示switch
-
+    private int imgId = 0;
     public SettingItem(boolean isDivider) {
         this.isDivider = isDivider;
     }
@@ -21,8 +22,12 @@ public class SettingItem {          // Setting中自定义item的实体类
         this.detailText = detailText;
         this.intent = intent;
     }
-
-    public SettingItem(String text, int userHead, Intent intent) {
+    public SettingItem(String text, int imgId, Intent intent) {
+        this.text = text;
+        this.imgId = imgId;
+        this.intent = intent;
+    }
+    public SettingItem(String text, Bitmap userHead, Intent intent) {
         this.text = text;
         this.userHead = userHead;
         this.intent = intent;
@@ -82,11 +87,11 @@ public class SettingItem {          // Setting中自定义item的实体类
         this.intent = intent;
     }
 
-    public int getUserHead() {
+    public Bitmap getUserHead() {
         return userHead;
     }
 
-    public void setUserHead(int userHead) {
+    public void setUserHead(Bitmap userHead) {
         this.userHead = userHead;
     }
 

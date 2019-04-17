@@ -31,16 +31,17 @@ public class VideosChannelPagerAdapter extends PagerAdapter {
 
     public void init() {
         officialItems = new ArrayList<>();
-        officialItems.add(new IndexItem(R.drawable.gongyizheshan, "山西省河曲县 河曲民歌 原生态乡土民歌", R.drawable.quju, "北京曲剧，曲艺单弦牌子曲为主发展而成"));
-        officialItems.add(new IndexItem(R.drawable.huangpinglaran, "河南省沁阳市唢呐《九峰情话》、《沁阳春》", R.drawable.diaoban, "最负盛名的传统表演性舞蹈傣族民间舞孔雀舞"));
+        //officialItems.add(new IndexItem(R.drawable.gongyizheshan, "山西省河曲县 河曲民歌 原生态乡土民歌", R.drawable.quju, "北京曲剧，曲艺单弦牌子曲为主发展而成"));
+       /* officialItems.add(new IndexItem(R.drawable.huangpinglaran, "河南省沁阳市唢呐《九峰情话》、《沁阳春》", R.drawable.diaoban, "最负盛名的传统表演性舞蹈傣族民间舞孔雀舞"));
         officialItems.add(new IndexItem(R.drawable.kunqu, "苏州太仓南码头百戏之祖昆曲", R.drawable.andaiwu, "内蒙古通辽市蒙古族舞蹈活化石安代舞"));
         officialItems.add(new IndexItem(R.drawable.liyuanxi, "闽浙之音、古南戏活化石 梨园戏", R.drawable.chuanju, "中国传统戏曲川剧"));
+*/
 
-        unofficialItems = new ArrayList<>();
+        unofficialItems = new ArrayList<>();/*
         unofficialItems.add(new IndexItem(R.drawable.gongyizheshan, "山西省河曲县 河曲民歌 原生态乡土民歌", R.drawable.quju, "北京曲剧，曲艺单弦牌子曲为主发展而成"));
         unofficialItems.add(new IndexItem(R.drawable.huangpinglaran, "河南省沁阳市唢呐《九峰情话》、《沁阳春》", R.drawable.diaoban, "最负盛名的传统表演性舞蹈傣族民间舞孔雀舞"));
         unofficialItems.add(new IndexItem(R.drawable.kunqu, "苏州太仓南码头百戏之祖昆曲", R.drawable.andaiwu, "内蒙古通辽市蒙古族舞蹈活化石安代舞"));
-        unofficialItems.add(new IndexItem(R.drawable.liyuanxi, "闽浙之音、古南戏活化石 梨园戏", R.drawable.chuanju, "中国传统戏曲川剧"));
+        unofficialItems.add(new IndexItem(R.drawable.liyuanxi, "闽浙之音、古南戏活化石 梨园戏", R.drawable.chuanju, "中国传统戏曲川剧"));*/
     }
 
     @NonNull

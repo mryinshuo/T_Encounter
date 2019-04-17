@@ -45,6 +45,7 @@
                         android:id="@+id/loginUn"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginBottom="15dp"
                         android:background="@drawable/round_corner_gray"
                         android:hint="@string/username"
                         android:maxLines="1"
@@ -54,8 +55,7 @@
 
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginVertical="15dp">
+                        android:layout_height="wrap_content">
 
                         <EditText
                             android:id="@+id/loginPw"
@@ -81,6 +81,13 @@
                             android:text="@string/showPw" />
                     </RelativeLayout>
                 </LinearLayout>
+
+                <android.support.v7.widget.AppCompatCheckBox
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="5dp"
+                    android:text="记住密码"
+                    android:textColor="@color/white" />
 
                 <Button
                     android:id="@+id/loginButton"
@@ -113,8 +120,6 @@
                         android:text="@string/log2sign"
                         android:textColor="@color/gray" />
                 </RelativeLayout>
-
-
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

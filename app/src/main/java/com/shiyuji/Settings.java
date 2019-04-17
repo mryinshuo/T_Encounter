@@ -36,16 +36,16 @@ public class Settings extends AppCompatActivity implements AdapterView.OnItemCli
     private void initItems() {
         SettingItem divider = new SettingItem(true);
 
-        itemList.add(new SettingItem("个人信息", null, new Intent(this, InfoSettings.class)));
-        itemList.add(new SettingItem("通知设置", null, new Intent(this, NoticeSettings.class)));
+        itemList.add(new SettingItem("个人信息", "", new Intent(this, InfoSettings.class)));
+        itemList.add(new SettingItem("通知设置", "", new Intent(this, NoticeSettings.class)));
         itemList.add(divider);
-        itemList.add(new SettingItem("常见问题", null, new Intent(this, QuestionSettings.class)));
-        itemList.add(new SettingItem("联系客服", null, new Intent(this, ContactSettings.class)));
-        itemList.add(new SettingItem("意见反馈", null, new Intent(this, FeedbackSettings.class)));
-        itemList.add(new SettingItem("关于我们", null, new Intent(this, AboutSettings.class)));
+        itemList.add(new SettingItem("常见问题", "", new Intent(this, QuestionSettings.class)));
+        itemList.add(new SettingItem("联系客服", "", new Intent(this, ContactSettings.class)));
+        itemList.add(new SettingItem("意见反馈", "", new Intent(this, FeedbackSettings.class)));
+        itemList.add(new SettingItem("关于我们", "", new Intent(this, AboutSettings.class)));
         itemList.add(divider);
         itemList.add(new SettingItem("夜间模式", true, null));
-        itemList.add(new SettingItem("退出登录", null, null));
+        itemList.add(new SettingItem("退出登录", "", null));
     }
 
     @Override

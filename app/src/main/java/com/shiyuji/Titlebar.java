@@ -14,7 +14,9 @@ public class Titlebar extends LinearLayout {
     private TextView titlebarText;
     private LinearLayout titlebarPrev;
     private String text;
-
+    public void setTitle(String title) {
+        titlebarText.setText(title);
+    }
     public Titlebar(Context context, AttributeSet attrs) {
         super(context, attrs);
         LayoutInflater.from(context).inflate(R.layout.titlebar, this);     // 调用inflate()方法将布局实例化为View对象

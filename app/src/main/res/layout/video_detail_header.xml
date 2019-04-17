@@ -11,11 +11,12 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <VideoView
+        <ImageView
             android:id="@+id/videoDetailVV"
             android:layout_width="match_parent"
             android:layout_height="250dp"
-            android:background="@drawable/huangpinglaran" />
+            android:scaleType="centerCrop"
+            android:background="@drawable/no_network" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -28,7 +29,8 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
-                android:layout_marginStart="10dp" />
+                android:layout_marginStart="10dp"
+                android:src="@drawable/user_head"/>
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -41,7 +43,8 @@
                     android:id="@+id/videoDetailName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="20sp" />
+                    android:textSize="20sp"
+                    android:text="###"/>
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -50,13 +53,15 @@
                     <TextView
                         android:id="@+id/videoDetailTime"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:text="####年#月#日" />
 
                     <TextView
                         android:id="@+id/videoDetailPlayNum"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp" />
+                        android:layout_marginStart="20dp"
+                        android:text="#"/>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -73,7 +78,8 @@
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/round_corner_white"
                 android:gravity="center"
-                android:textColor="#E5B483" />
+                android:textColor="@color/colorPrimary"
+                android:text="+ 关注"/>
         </LinearLayout>
 
         <TextView
@@ -82,7 +88,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="70dp"
             android:layout_marginEnd="20dp"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:text="########"/>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -107,7 +114,8 @@
                 <TextView
                     android:id="@+id/videoDetailLikeNum"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:text="#"/>
             </LinearLayout>
 
             <LinearLayout
@@ -126,7 +134,8 @@
                 <TextView
                     android:id="@+id/videoDetailCommentNum"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:text="#" />
             </LinearLayout>
 
             <LinearLayout
@@ -144,13 +153,15 @@
                 <TextView
                     android:id="@+id/videoDetailShareNum"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:text="#" />
             </LinearLayout>
 
             <ImageView
                 android:id="@+id/videoDetailFavorite"
                 android:layout_width="25dp"
-                android:layout_height="25dp" />
+                android:layout_height="25dp"
+                android:src="@drawable/xihuan"/>
         </LinearLayout>
     </LinearLayout>
 

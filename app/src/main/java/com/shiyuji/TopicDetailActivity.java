@@ -63,10 +63,10 @@ public class TopicDetailActivity extends AppCompatActivity implements View.OnCli
 
     public void init() {
         list = new ArrayList();
-        list.add(new CommentItem(R.drawable.he, "hello", "1", "2小时前", true, "我是1楼", true, 25));
-        list.add(new CommentItem(R.drawable.he, "hello", "1", "2小时前", true, "我是1楼", true, 25));
-        list.add(new CommentItem(R.drawable.he, "hello", "1", "2小时前", true, "我是1楼", true, 25));
-        list.add(new CommentItem(R.drawable.he, "hello", "1", "2小时前", true, "我是1楼", true, 25));
+        list.add(new CommentItem("1.png", "hello", "1", "2小时前", true, "我是1楼", true, 25));
+        list.add(new CommentItem("1.png", "hello", "1", "2小时前", true, "我是1楼", true, 25));
+        list.add(new CommentItem("1.png", "hello", "1", "2小时前", true, "我是1楼", true, 25));
+        list.add(new CommentItem("1.png", "hello", "1", "2小时前", true, "我是1楼", true, 25));
     }
 
     public void initHeader(TopicsDetailHeaderItem header) {

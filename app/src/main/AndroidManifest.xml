@@ -2,11 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.shiyuji">
-    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -16,7 +17,9 @@
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission
+        android:name="android.permission.WRITE_SETTINGS"
+        tools:ignore="ProtectedPermissions" />
     <uses-permission android:name="android.permission.GET_TASKS" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -24,10 +27,10 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
-    <uses-permission android:name="android.permission.WAKE_LOCK"/>
-
+    <uses-permission
+        android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <application
         android:name=".Application.MyApplication"
@@ -37,11 +40,13 @@
         android:roundIcon="@mipmap/launcher"
         android:supportsRtl="true"
         android:theme="@style/AppThemeNoActionBar"
-        tools:ignore="AllowBackup,GoogleAppIndexingWarning">
+        tools:ignore="AllowBackup,GoogleAppIndexingWarning"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".BigPicture"></activity>
+
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
-            android:value="6dRWRu5BCjx8GkyimMFRqtqxGSSz0IUg" />
-        <!-- HBY -->
+            android:value="6dRWRu5BCjx8GkyimMFRqtqxGSSz0IUg" /> <!-- HBY -->
         <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -49,6 +54,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ChangeInfoSettings" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".SignUpActivity" />
         <activity android:name=".FindPasswordActivity" />
@@ -60,15 +66,9 @@
         <activity android:name=".FeedbackSettings" />
         <activity
             android:name=".ContactSettings"
-            android:windowSoftInputMode="adjustPan" />
-
-        <!-- GZQ -->
-        <activity android:name=".UserActivity" />
-
-        <!-- YCH -->
-        <activity android:name=".VideoDetailActivity" />
-
-        <!-- LJY -->
+            android:windowSoftInputMode="adjustPan" /> <!-- GZQ -->
+        <activity android:name=".UserActivity" /> <!-- YCH -->
+        <activity android:name=".VideoDetailActivity" /> <!-- LJY -->
         <activity android:name=".TopicsChannel" />
         <activity android:name=".EditTopicChannel" />
         <activity android:name=".ChannelActivity" />
@@ -76,6 +76,7 @@
         <activity android:name=".TopicDetailActivity" />
         <activity
             android:name=".IndexActivity"
+            android:exported="true"
             android:windowSoftInputMode="adjustPan" />
         <activity android:name=".TrendsActivity" />
         <activity android:name=".InheritorVideosChannel" />
@@ -92,7 +93,17 @@
             android:enabled="true"
             android:process=":remote" />
 
-        <activity android:name=".LocationActivity"></activity>
+        <activity android:name=".LocationActivity" />
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.example.camerralbumtest.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
     </application>
 
 </manifest>

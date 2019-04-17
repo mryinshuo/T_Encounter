@@ -14,4 +14,10 @@
         <attr name="border_width" format="dimension" />
         <attr name="border_color" format="color" />
     </declare-styleable>
+
+    <declare-styleable name="ChannelItem">
+        <attr name="channelItemImage" format="reference|integer" />
+        <attr name="channelItemText" format="string" />
+        <attr name="channelItemIdText" format="string" />
+    </declare-styleable>
 </resources>

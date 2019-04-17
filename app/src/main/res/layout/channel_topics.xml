@@ -19,17 +19,15 @@
             android:gravity="center">
 
             <ImageView
-                android:id="@+id/zheng"
+                android:id="@+id/topicsIcon"
                 android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:src="@drawable/tradition" />
+                android:layout_height="70dp" />
 
             <TextView
-                android:id="@+id/titlea"
+                android:id="@+id/topicsTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif"
-                android:text="民俗"
                 android:textAlignment="center"
                 android:textColor="#776565"
                 android:textSize="45sp"
