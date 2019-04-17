@@ -77,7 +77,6 @@ private SharedPreferences.Editor edit;
         log2sign.setOnClickListener(this);
         findPw = (TextView) findViewById(R.id.findPw);
         findPw.setOnClickListener(this);
-
     }
 
     @Override

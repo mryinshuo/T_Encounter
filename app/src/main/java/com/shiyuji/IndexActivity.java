@@ -141,11 +141,10 @@ private IndexPagerAdapter indexPagerAdapter;
         liveTV.setOnClickListener(this);
         nearbyTV.setOnClickListener(this);
         /*initSwipeRefresh();*/
+        user=getPersonMes.getConnect(MyApplication.phone);
 
-if (getPersonMes.getConnect(MyApplication.phone)!=null){
-    user = getPersonMes.getConnect(MyApplication.phone);
-}else {
-    User user = new User();
+if (user==null){
+    user = new User();
     user.setPhone(MyApplication.phone);
     user.setName("传承者");
     user.setHeadUrl("logo.png");
@@ -157,9 +156,8 @@ if (getPersonMes.getConnect(MyApplication.phone)!=null){
         if(user.getHeadUrl()!=null){
             MyApplication.headUrl=user.getHeadUrl();
         }else {
-            User user = new User();
             user.setPhone(MyApplication.phone);
-            user.setName("传承者");
+            user.setHeadUrl("logo.png");
             changeUser.init(user,pointUrl);
             MyApplication.headUrl="logo.png";
         }
@@ -462,7 +460,7 @@ if (getPersonMes.getConnect(MyApplication.phone)!=null){
            iteratorUtils iteratorUtils = new iteratorUtils();
            String cacheData=acache.getAsString("recommendItems");//从缓存中取数据*/
         recommendItems = new ArrayList<IndexItem>();
-        if(cacheData!=null&&ISACACHE==1){//如果缓存中有，就不访问网络
+       if(cacheData!=null&&ISACACHE==1){//如果缓存中有，就不访问网络
             Log.d(TAG, "init1: 缓存");
             recommendItems.clear();
             Gson gson=new Gson();  //引用谷歌的json包
@@ -484,6 +482,5 @@ if (getPersonMes.getConnect(MyApplication.phone)!=null){
         }
 
     }
-
 
 }

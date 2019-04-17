@@ -27,6 +27,7 @@ public class changeUser {
             jsonObject.put("sex", user.getSex());
             jsonObject.put("birthday",user.getBirthday());
             jsonObject.put("name", user.getName());
+            jsonObject.put("headUrl", user.getHeadUrl());
             jsonObject.put("signature",user.getSignature());
             //  Log.d("ResponseCodephone", "myphone："+uid);
             final String content=String.valueOf(jsonObject);  //json串转string类型
