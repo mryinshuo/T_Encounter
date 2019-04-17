@@ -17,7 +17,7 @@ public class MyApplication extends LitePalApplication {
     static public String headUrl;
     static public String userName;
     static public String ADRESS;
-    private static String MYURL="http://192.168.1.54:8080/";
+    private static String MYURL="http://39.105.45.66/Shiyuji_war/";
     //http://39.105.45.66/Shiyuji_war/
     public HashMap<String,String> hashMapInfo = new HashMap<>();
     @Override
